@@ -90,7 +90,7 @@ Compressed payloads are packaged with a custom metadata header for lossless extr
 ### Application Interface
 
 <p align="center">
-  <img src="ui1.jpeg" alt="MUDC App Interface 1" width="45%" />
+  <img src="ui3.jpeg" alt="MUDC App Interface 1" width="45%" />
   &nbsp; &nbsp;
   <img src="ui2.jpeg" alt="MUDC App Interface 2" width="45%" />
 </p>
