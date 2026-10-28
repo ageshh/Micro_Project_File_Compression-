@@ -21,32 +21,35 @@ To guarantee accurate lossless extraction, the payload is packaged with a custom
 ## ⚙️ Architecture & Working Mechanism
 
 The utility operates on a strict raw binary pipeline:
-                       Raw Input Bytestream
-                                │
-                                ▼
-             ┌──────────────────────────────────────┐
-             │        Stage 1: LZ77 Encoder         │
-             │   (Sliding Window Dictionary Match)  │
-             └──────────────────┬───────────────────┘
-                                │
-                     Stream of LZ77 Tokens:
-                   - Literals (unmatched bytes)
-                   - Matches (distance, length)
-                                │
-                                ▼
-             ┌──────────────────────────────────────┐
-             │       Stage 2: Huffman Encoder       │
-             │   (Optimal Variable-Length Codes)    │
-             └──────────────────┬───────────────────┘
-                                │
-                                ▼
-             ┌──────────────────────────────────────┐
-             │        MUDC Container Packer         │
-             │   (Magic Signature + Header Data)    │
-             └──────────────────┬───────────────────┘
-                                │
-                                ▼
-                       Output (.mudc Archive)
+
+```text
+                        Raw Input Bytestream
+                                 │
+                                 ▼
+              ┌──────────────────────────────────────┐
+              │        Stage 1: LZ77 Encoder         │
+              │   (Sliding Window Dictionary Match)  │
+              └──────────────────┬───────────────────┘
+                                 │
+                       Stream of LZ77 Tokens:
+                     - Literals (unmatched bytes)
+                     - Matches (distance, length)
+                                 │
+                                 ▼
+              ┌──────────────────────────────────────┐
+              │        Stage 2: Huffman Encoder      │
+              │    (Optimal Variable-Length Codes)   │
+              └──────────────────┬───────────────────┘
+                                 │
+                                 ▼
+              ┌──────────────────────────────────────┐
+              │        MUDC Container Packer         │
+              │   (Magic Signature + Header Data)    │
+              └──────────────────┬───────────────────┘
+                                 │
+                                 ▼
+                        Output (.mudc Archive)
+```
 
 
 ### 1. Stage 1: LZ77 Sliding Window Matching
