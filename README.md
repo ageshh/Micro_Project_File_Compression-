@@ -86,7 +86,22 @@ Compressed payloads are packaged with a custom metadata header for lossless extr
 * **Specialized Optimization Utilities:** Dedicated handling for PNGs, PDFs, Audio (`.mp3`/`.wav`), and Video (`.mp4`/`.mkv`).
 
 ---
+---
 
+## 📱 Results & UI
+
+| Metric | Before Compression | After Compression |
+| :--- | :--- | :--- |
+| **Size** | ~15 MB | ~3 MB |
+| **Space Saved** | — | **80%** |
+| **Format** | Raw File | `.mudc` Archive |
+
+<p align="center">
+  <img src="before_compression.jpeg" alt="Before Compression" width="45%" />
+  <img src="after_compression.jpeg" alt="After Compression" width="45%" />
+</p>
+
+The app compresses raw files using a custom two-stage LZ77 and Huffman encoding pipeline, reducing file size by 80% while preserving lossless reconstruction.
 ## 📂 Project Structure
 
 ```text
@@ -105,3 +120,4 @@ Compressed payloads are packaged with a custom metadata header for lossless extr
 1. Go to the [Releases](https://github.com/ageshh/Micro_Project_File_Compression-/releases) tab (or root directory).
 2. Download `base.apk`.
 3. On your Android device, allow installation from unknown sources and install the APK.
+
